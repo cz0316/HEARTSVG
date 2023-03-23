@@ -1,0 +1,141 @@
+---
+title: "HEARTSVG: a high-efficiency and robust method for identifying spatial expression patterns in large-scale spatial transcriptomic data"
+author: "Xin Yuan"
+date: "2023-03-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+We proposed HEARTSVG, which builds upon serial correlation tests for rapidly and precisely detecting SVGs without relying on the underlying data-generative model or pre-defining spatial patterns.Furthermore, we developed the software HEARTSVG to provide an SVG auto-clustering module for predictions of spatial domain and visualizations, allowing users to discover novel biological phenomena. 
+
+To be able to use the R package HEARTSVG successfully, we suggest manually installing the following packages and their dependent packages first: spatstat, Seurat, plotly, plot3D, TTR, stringr, fpp2, seasonal, cluster, poolr, reshape2, data.table, plyr, dplyr, ggplot2, MASS, EnvStats, BreakPoints, gprofiler2
+
+```{r,warning=F,message=F,results='hide',error=F}
+library(spatstat);library(Seurat);library(plot3D);library(plotly);library(TTR);library(stringr);library(fpp2);library(seasonal);library(cluster);library(poolr);library(reshape2);library(data.table);library(plyr);library(dplyr);library(ggplot2);library(MASS);library(EnvStats);library(BreakPoints);library(gprofiler2)
+
+```
+
+
+
+
+## 0 Load data
+
+We use the ST data from the Wu et al. study as an example to introduce the usage of the R package HEARTSVG. The article and data download link are: \url{https://doi.org/10.1158/2159-8290.CD-21-0316}; \url{http://www.cancerdiversity.asia/scCRLM/}
+
+
+```{r ,warning=F}
+library(HEARTSVG)
+data("heartsvg_demo")
+dim(stc2)
+```
+
+We use the function \bold{filter.gene} to filter the non-expressed genes and low expression proportion genes. Then we use the function \bold{seurat.trans} to transform the data type, from SeuratObject to a data.frame of a sparse matrix.
+
+```{r}
+stc2=filter.gene(stc2,thr=0.01)
+dim(stc2)
+
+stc2.dt=seurat.trans(stc2)
+dim(stc2.dt)
+```
+
+
+## 1 Find SVG
+
+The input data of the function \bold{heartsvg} is a data.frame with dimensions n*(p+2) contains gene coordinates and gene expression counts. 
+
+The first 2 columns should represent coordinates and their column names must be 'row' and 'col', respectively. The remaining p columns correspond to the expression levels of p genes. There are n rows, representing n spots.
+
+```{r}
+demo=stc2.dt[,1:1002]
+demo[1:6,1:6]
+
+## find SVG
+result=heartsvg(demo)
+head(result)
+```
+
+## 2 Visualization
+Different visualizations of top SVGs.
+
+### 2.1 2D plot
+```{r}
+svg.2Dplot(data = demo,gene=result$gene[1:3],method = 'raw')
+```
+
+### 2.2 Marginal expression plot of SVG
+
+The marginal expression of genes are obtained by the semi-pooling process.
+
+```{r}
+svg.Mplot(data=demo,gene=result$gene[1:3],method = 'raw')
+```
+
+### 2.3 3D plot
+
+#### 2.3.1 3D scatter plot
+
+```{r}
+svg.3Dplot(data=demo,gene = c('RPS8'),type = 'scatter')
+
+```
+
+
+#### 2.3.1 3D surface plot
+
+```{r}
+svg.3Dplot(data=demo,gene=c('RPS27'),type = 'surface')
+
+```
+
+
+
+## 3 Prediction of spatial domains
+
+We offers an auto-clustering module for SVGs that facilitates further analyses, including predicting spatial domains, conducting functional analyses, and visualization based on the set of SVG files.  
+We categorize SVGs based on their similarity in spatial expression and adopt a data-driven approach to estimate the number of spatially coherent regions in both SVG expression and histology.
+
+### 3.1 clustering for SVGs
+```{r}
+clust_demo=svg.clust(data=demo,svg=result$gene[1:500],method = 'h')
+
+table(clust_demo$cluster)
+
+km_demo=svg.clust(data=demo,svg=result$gene[1:500],method = 'k',n.c=6)
+table(km_demo$cluster)
+
+```
+
+
+### 3.2 visualization of spatial domains
+
+```{r}
+svg.2Dplot(data=demo,gene=clust_demo$gene[clust_demo$cluster==1],method = 'mean',title = 'domain-1')
+
+svg.2Dplot(data=demo,gene=clust_demo$gene[clust_demo$cluster==3],method = 'mean',title = 'domain-3')
+
+```
+
+
+## 4 Enrichment
+
+We perform enrichment analysis of SVG sets based on the package gprofiler2.
+
+```{r}
+cl1.en=svg.enrichment(svg=clust_demo$gene[clust_demo$cluster==1])
+
+head(cl1.en)
+
+```
+
+
+
+
+
+
+
+
+
+

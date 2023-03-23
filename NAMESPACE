@@ -1,0 +1,40 @@
+# Default NAMESPACE created by R
+# Remove the previous line if you edit this file
+
+# Export all names
+exportPattern(".")
+
+# Import all packages listed as Imports or Depends
+import(
+  TTR,
+  stringr,
+  fpp2,
+  seasonal,
+  cluster,
+  poolr,
+  Seurat,
+  SeuratObject,
+  spatstat,
+  spatstat.utils,
+  spatstat.geom,
+  spatstat.data,
+  spatstat.random,
+  spatstat.linnet,
+  spatstat.sparse,
+  reshape2,
+  data.table,
+  dplyr,
+  ggplot2,
+  MASS,
+  EnvStats,
+  BreakPoints,
+  plotly,
+  plot3D,
+  plyr,
+  gprofiler2
+)
+export(
+filter.gene,
+seurat.trans,
+heartsvg
+)
