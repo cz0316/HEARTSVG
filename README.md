@@ -11,6 +11,29 @@ library(reshape2);library(data.table);library(plyr);library(dplyr);library(ggplo
 library(MASS);library(EnvStats);library(BreakPoints);library(gprofiler2)
 
 ```
+## Required R modules
+```{r ,warning=F}
+R (>= 3.5.0)
+```
+
+## Dependencies
+```{r ,warning=F}
+fpp2 (>=2.4)
+seasonal (>=1.9.0)
+cluster (>=2.1.3)
+poolr (>=1.1.1)
+Seurat (4.1.1)
+spatstat (>=2.3.4)
+ggplot2 (>=3.4.2)
+EnvStats (>=2.7.0)
+BreakPoints (>=1.2)
+plotly (>=4.10.0)
+plot3D (>=1.4)
+gprofiler2 (>=0.2.1)
+
+
+```
+
 ## 0 Load data
 
 We use the ST data from the Wu et al. study as an example to introduce the usage of the R package HEARTSVG. The article and data download link are: https://doi.org/10.1158/2159-8290.CD-21-0316; http://www.cancerdiversity.asia/scCRLM/.
@@ -144,13 +167,13 @@ table(km_demo$cluster)
 ### 3.2 visualization of spatial domains
 
 ```{r}
-svg.2Dplot(data=demo,gene=clust_demo$gene[clust_demo$cluster==1],method = 'mean',title = 'domain-1')
+svg.2Dplot(data=demo,gene=clust_demogene[clustdemogene[clust_democluster==1],method = 'mean',title = 'domain-1')
 ```
 ![image](https://user-images.githubusercontent.com/57090974/227209204-cb369b7f-273b-4568-bc21-5477bb2ed4f0.png)
 
 
 ```{r}
-svg.2Dplot(data=demo,gene=clust_demo$gene[clust_demo$cluster==2],method = 'mean',title = 'domain-2')
+svg.2Dplot(data=demo,gene=clust_demogene[clustdemogene[clust_democluster==2],method = 'mean',title = 'domain-2')
 ```
 
 cl1.en=svg.enrichment(svg=clust_demo$gene[clust_demo$cluster==1])
@@ -163,7 +186,7 @@ head(cl1.en)
 We perform enrichment analysis of SVG sets based on the package gprofiler2.
 
 ```{r}
-cl1.en=svg.enrichment(svg=clust_demo$gene[clust_demo$cluster==1])
+cl1.en=svg.enrichment(svg=clust_demogene[clustdemogene[clust_democluster==1])
 
 head(cl1.en)
 ##     query significant      p_value term_size query_size intersection_size
