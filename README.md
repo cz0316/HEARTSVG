@@ -34,13 +34,19 @@ gprofiler2 (>=0.2.1)
 
 ```
 
+## Install
+
+```{r}
+library(devtools)
+devtools::install_github('https://github.com/cz0316/HEARTSVG',force = T)
+library(HEARTSVG)
+```
 ## 0 Load data
 
 We use the ST data from the Wu et al. study as an example to introduce the usage of the R package HEARTSVG. The article and data download link are: https://doi.org/10.1158/2159-8290.CD-21-0316; http://www.cancerdiversity.asia/scCRLM/.
 
 
 ```{r ,warning=F}
-library(HEARTSVG)
 stc2.dt=readRDS(file = '~/HEARTSVG/data/HEARTSVG_demo.RDS')
 dim(stc2.dt)
 ## [1] 4174 15429
