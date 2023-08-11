@@ -41,9 +41,8 @@ We use the ST data from the Wu et al. study as an example to introduce the usage
 
 ```{r ,warning=F}
 library(HEARTSVG)
-stc2=readRDS(file = '~/HEARTSVG/data/HEARTSVG_demo.RDS')
-data("heartsvg_demo")
-dim(stc2)
+stc2.dt=readRDS(file = '~/HEARTSVG/data/HEARTSVG_demo.RDS')
+dim(stc2.dt)
 ## [1] 4174 15429
 ```
 If your data is of type seuratObject, we provide two functions, **filter.gene** and **seurat.trans** , for converting the data into a format suitable for HEARTSVG.
