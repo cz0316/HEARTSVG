@@ -41,20 +41,21 @@ We use the ST data from the Wu et al. study as an example to introduce the usage
 
 ```{r ,warning=F}
 library(HEARTSVG)
+stc2=readRDS(file = '~/HEARTSVG/data/HEARTSVG_demo.RDS')
 data("heartsvg_demo")
 dim(stc2)
-## [1] 36601  4174
+## [1] 4174 15429
 ```
-
-We use the function **filter.gene** to filter the non-expressed genes and low expression proportion genes. Then we use the function **seurat.trans** to transform the data type, from SeuratObject to a data.frame of a sparse matrix.
+If your data is of type seuratObject, we provide two functions, **filter.gene** and **seurat.trans** , for converting the data into a format suitable for HEARTSVG.
+We use the function **filter.gene** to filter the non-expressed genes and low expression proportion genes. Then we use the function **seurat.trans** to transform the data type, from SeuratObject to a data.frame.
 
 ```{r}
-stc2=filter.gene(stc2,thr=0.01)
-dim(stc2)
+## stc2=filter.gene(stc2,thr=0.01) # thr=0.01 represents the minimum expression proportion of each gene across all cells.
+## dim(stc2)
 ## [1] 8812 4174
 
-stc2.dt=seurat.trans(stc2)
-dim(stc2.dt)
+## stc2.dt=seurat.trans(stc2)
+## dim(stc2.dt)
 ## [1] 4174 8814
 ```
 
