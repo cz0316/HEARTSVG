@@ -23,3 +23,6 @@ Config/testthat/edition: 3
 NeedsCompilation: no
 Packaged: 2023-03-23 12:02:03 UTC; Yuanxin
 Depends: R (>= 3.5.0)
+
+Remotes:
+  - https://github.com/cz0316/HEARTSVG
