@@ -229,7 +229,9 @@ head(cl1.en)
 ![Rplot](https://user-images.githubusercontent.com/57090974/227210739-74e236d1-ab4b-4032-9b92-50565af266ad.png)
 
 
-
+## Citation
+Yuan X, Ma Y, Gao R, et al. HEARTSVG: a fast and accurate method for spatially variable gene identification in large-scale spatial transcriptomic data[J]. bioRxiv, 2023: 2023.08. 06.552154.
+doi: https://doi.org/10.1101/2023.08.06.552154
 
 
 
