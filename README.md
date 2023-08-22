@@ -42,7 +42,7 @@ devtools::install_github('https://github.com/cz0316/HEARTSVG',force = T)
 library(HEARTSVG)
 ```
 
-## Operating systems (version HEARTSVG 1.1.0) tested on:
+## Operating systems tested on (HEARTSVG 1.1.0) :
 macOS Ventura 13.4.1 <br>
 Windows 10 <br>
 
