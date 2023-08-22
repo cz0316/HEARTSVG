@@ -34,7 +34,7 @@ gprofiler2 (>=0.2.1)
 
 ```
 
-## installation
+## Installation
 
 ```{r}
 library(devtools)
@@ -43,8 +43,8 @@ library(HEARTSVG)
 ```
 
 ## Operating systems (version HEARTSVG 1.1.0) tested on:
-macOS Ventura 13.4.1 
-Windows 10
+macOS Ventura 13.4.1 <br>
+Windows 10 <br>
 
 
 
