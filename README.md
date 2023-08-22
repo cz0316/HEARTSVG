@@ -43,7 +43,7 @@ library(HEARTSVG)
 ```
 
 ## Operating systems (version HEARTSVG 1.1.0) tested on:
-macOS Ventura 13.4.1 //
+macOS Ventura 13.4.1 
 Windows 10
 
 
