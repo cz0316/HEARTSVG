@@ -48,7 +48,7 @@ Windows 10 <br>
 
 
 ## 2023/12 Update
-We optimized the code to achieve reductions in runtime and memory usage, and the optimized function is named **'heartsvg_fast'**. However, due to an unknown error, we are unable to compile the 'heartsvg_fast' function into the R package. As a result, we are providing it separately (file_name: heartsvg_fast.R). We are currently investigating the cause of the error.
+We optimized the code to achieve reductions in runtime and memory usage, and the optimized function is named **'heartsvg_fast'**. However, due to an unknown error, we are unable to compile the 'heartsvg_fast' function into the R package. As a result, we are providing it separately (file_name: [heartsvg_fast.R](https://github.com/cz0316/HEARTSVG/blob/main/heartsvg_fast.R)). We are currently investigating the cause of the error.
 
 
 
