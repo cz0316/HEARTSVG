@@ -47,6 +47,11 @@ macOS Ventura 13.4.1 <br>
 Windows 10 <br>
 
 
+## 2023/12 update
+We optimized the code to achieve reductions in runtime and memory usage, and the optimized function is named **'heartsvg_fast'**. However, due to an unknown error, we are unable to compile the 'heartsvg_fast' function into the R package. As a result, we are providing it separately (file_name: heartsvg_fast.R). We are currently investigating the cause of the error.
+
+
+
 
 ## 0 Load data
 
