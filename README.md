@@ -97,7 +97,7 @@ demo[1:6,1:6]
 
 ```{r}
 ## find SVG
-result=heartsvg(demo)
+result=heartsvg(demo,scale=T)
 head(result)
 ##       gene pval p_adj rank
 ## 729  RPS27    0     0    1
@@ -107,6 +107,11 @@ head(result)
 ## 725  RPL11    0     0    5
 ## 732   RPS8    0     0    6
 ```
+
+Regarding the parameter **'scale'**, the default value is T. This parameter is used to mitigate the impact of extreme values caused by technical factors. 
+If you are using technologies such as 10X Visium, which produce data with a moderate level of sparsity and some noise, we recommend setting the **scale=T**.
+Conversely, if you are using technologies such as HDST, which generate highly sparse data with very low expression levels, we recommend setting the **scale=F**. Additionally, if you have already performed noise reduction, normalization, or other preprocessing steps on your ST data, we also recommend setting the **scale=F**.
+
 
 ## 2 Visualization
 Different visualizations of top SVGs.
