@@ -110,11 +110,11 @@ head(result)
 
 Regarding the parameter **'scale'**, the default value is T. This parameter is used to mitigate the impact of extreme values caused by technical factors. 
 
-If you are using technologies such as 10X Visium, which produce data with a moderate level of sparsity and some noise, we recommend setting the **scale=T**.
+If you are using technologies such as 10X Visium, which produce data with a moderate level of sparsity and some noise, we recommend setting **scale=T**.
 
-Conversely, if you are using technologies such as HDST, which generate highly sparse data with very low expression levels, we recommend setting the **scale=F**. 
+Conversely, if you are using technologies such as HDST, which generate highly sparse data with very low expression levels, we recommend setting **scale=F**. 
 
-Additionally, if you have already performed noise reduction, normalization, or other preprocessing steps on your ST data, we also recommend setting the **scale=F**.
+Additionally, if you have already performed noise reduction, normalization, or other preprocessing steps on your ST data, we also recommend setting **scale=F**.
 
 
 ## 2 Visualization
