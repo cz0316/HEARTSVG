@@ -251,10 +251,10 @@ head(cl1.en)
 
 
 ## Citation
-Yuan X, Ma Y, Gao R, et al. HEARTSVG: a fast and accurate method for spatially variable gene identification in large-scale spatial transcriptomic data[J]. bioRxiv, 2023: 2023.08. 06.552154.
+Yuan, X., Ma, Y., Gao, R. et al. HEARTSVG: a fast and accurate method for identifying spatially variable genes in large-scale spatial transcriptomics. Nat Commun 15, 5700 (2024). https://doi.org/10.1038/s41467-024-49846-1
 
-doi: https://doi.org/10.1101/2023.08.06.552154
 
+doi: https://doi.org/10.1038/s41467-024-49846-1
 
 
 
